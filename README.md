@@ -22,6 +22,56 @@ A real-time desktop chat app built in Java where students can message each other
 - On the client side, a background thread handles all incoming messages so the UI never freezes. Any time the UI needs to update from that thread, it gets handed off safely to the JavaFX thread.
 - User avatars are coloured based on the user's ID, so everyone always gets a different colour without needing to store it anywhere.
 
+
+## How to Run
+
+### Prerequisites
+- **JDK 17+** — Download from [adoptium.net](https://adoptium.net) (pick the latest LTS). Make sure `java` and `javac` work in your terminal after installing.
+- **JavaFX SDK** — Since Java 11, JavaFX no longer comes bundled with Java. Download the SDK for your OS from [gluonhq.com/products/javafx](https://gluonhq.com/products/javafx). Extract it somewhere easy to find (e.g. `C:\javafx-sdk` or `~/javafx-sdk`).
+
+> **Easiest alternative:** Use an IDE like **IntelliJ IDEA** — it can handle the JavaFX setup for you with less manual work (see below).
+
+---
+
+### Option A — Running with an IDE
+
+1. Clone or download the repo and open it as a project in **IntelliJ IDEA**.
+2. Go to **File → Project Structure → Libraries**, click `+`, and add the `lib` folder from your JavaFX SDK download.
+3. Go to **Run → Edit Configurations**, and in **VM options** add:
+   ```
+   --module-path /path/to/javafx-sdk/lib --add-modules javafx.controls,javafx.fxml
+   ```
+   Replace `/path/to/javafx-sdk` with wherever you extracted the JavaFX SDK.
+4. Run the **server first** (`MainServer.java`), then run the **client** (`SocketTalkApp.java`).
+
+---
+
+### Option B — Running from the Terminal
+
+**1. Compile the project**
+```bash
+javac --module-path /path/to/javafx-sdk/lib --add-modules javafx.controls,javafx.fxml -d out src/Server/*.java src/Clients/*.java src/UI/*.java
+```
+
+**2. Start the server**
+```bash
+java -cp out Server.MainServer
+```
+
+**3. Start the client** (in a separate terminal)
+```bash
+java --module-path /path/to/javafx-sdk/lib --add-modules javafx.controls,javafx.fxml -cp out UI.SocketTalkApp
+```
+
+> To test with multiple users, open additional terminals and run the client command again for each one.
+
+---
+
+### Notes
+- The server must be running before any client connects.
+- A `users.txt` file and `history/` folder will be created automatically in the project root on first run.
+- By default the server runs on `localhost`. If you want clients on different machines to connect, update the server IP in the client config and make sure port `5555` is open on the host machine.
+
 ## Preview 
 ![App Screenshot](assets/screenshots/screenshot1.png)
 ![App Screenshot](assets/screenshots/screenshot2.png)
