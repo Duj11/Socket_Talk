@@ -29,8 +29,6 @@ A real-time desktop chat app built in Java where students can message each other
 - JDK 17+ — Download from [adoptium.net](https://adoptium.net) (pick the latest LTS). Make sure `java` and `javac` work in your terminal after installing.
 - JavaFX SDK — Since Java 11, JavaFX no longer comes bundled with Java. Download the SDK for your OS from [gluonhq.com/products/javafx](https://gluonhq.com/products/javafx). Extract it somewhere easy to find (e.g. `C:\javafx-sdk` or `~/javafx-sdk`).
 
----
-
 ### Option A — Running with an IDE
 
 1. Clone or download the repo and open it as a project in IntelliJ IDEA.
@@ -41,8 +39,6 @@ A real-time desktop chat app built in Java where students can message each other
    ```
    Replace `/path/to/javafx-sdk` with wherever you extracted the JavaFX SDK.
 4. Run the server first (`MainServer.java`), then run the client (`SocketTalkApp.java`).
-
----
 
 ### Option B — Running from the Terminal
 
@@ -61,7 +57,7 @@ java -cp out Server.MainServer
 java --module-path /path/to/javafx-sdk/lib --add-modules javafx.controls,javafx.fxml -cp out UI.SocketTalkApp
 ```
 
-> To test with multiple users, open additional terminals and run the client command again for each one.
+- To test with multiple users, open additional terminals and run the client command again for each one.
 
 ---
 
