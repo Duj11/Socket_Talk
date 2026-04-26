@@ -22,9 +22,9 @@ A real-time desktop chat app built in Java where users can message each other, s
 - User avatars are coloured based on the user's ID, so everyone always gets the same colour without needing to store it anywhere.
 
 ## Preview 
-![App Screenshot](assets/images/screenshot1.png)
-![App Screenshot](assets/images/screenshot2.png)
-![App Screenshot](assets/images/screenshot3.png)
+![App Screenshot](assets/screenshots/screenshot1.png)
+![App Screenshot](assets/screenshots/screenshot2.png)
+![App Screenshot](assets/screenshots/screenshot3.png)
 
 ## What Was Learned
 - How to manage multiple users connecting at the same time without things breaking — using synchronized methods and thread-safe data structures.
