@@ -33,7 +33,5 @@ A real-time desktop chat app built in Java where users can message each other, s
 - Handling persistent storage with just plain files in a way that stays consistent across sessions.
 
 ## Future Plans
-- Group chat creation from the UI
-- Encrypted messages with TLS
 - Swap the text file storage for an actual database
 - Message read receipts
